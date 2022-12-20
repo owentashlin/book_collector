@@ -9,12 +9,15 @@ class Book(models.Model):
     rating = models.IntegerField()
     
     def __str__(self):
-        return self.name
+        return self.id
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'book_id': self.id})
 
 class Reading(models.Model):
-    date: models.DateField()
-    page: models.IntegerField()
+    date: models.DateField('start date')
+    page: models.IntegerField('page number')
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.get_page_display()} on {self.date}"
