@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Tea Details</h1>
+
+<div class="row">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{tea.brand}}</span>
+                <p>Flavor: {{tea.flavor}}</p>
+                <p>Description: {{tea.description}}</p>
+                <p>Rating: {{tea.rating}}</p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'teas_update' tea.id %}">Edit</a>
+                <a href="{% url 'teas_delete' tea.id %}">Delete</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

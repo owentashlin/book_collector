@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Book Collector</title>
+  <title>Books & Tea</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
@@ -18,12 +18,14 @@
     <nav>
       <div class="nav-wrapper brown">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;BookCollector</a></li>
+          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Books & Tea</a></li>
         </ul>
         <ul class="right">
           <li><a href="/about">About</a></li>
-          <li><a href="{% url 'books_create' %}">Add a Book</a></li>
-          <li><a href="/books">View All My Books</a></li>
+          <li><a href="{% url 'books_create' %}">Add Book</a></li>
+          <li><a href="{% url 'teas_create' %}">Add Tea</a></li>
+          <li><a href="/books">Book Library</a></li>
+          <li><a href="/teas">Tea Library</a></li>
         </ul>
       </div>
     </nav>
@@ -33,7 +35,7 @@
     {% endblock %}
   </main>
   <footer class="page-footer brown">
-    <div class="right">All Rights Reserved, &copy; 2022 Book Collector &nbsp;</div>
+    <div class="right">All Rights Reserved, &copy; 2022 Books & Tea &nbsp;</div>
   </footer>
 </body>
 </html>
