@@ -25,3 +25,15 @@ body {
 p {
     font-size: 2rem;
 }
+
+h1{
+    text-align: center;
+}
+
+#id_description{
+    font-size: 14px;
+}
+
+.btn {
+    background-color: grey;
+}
