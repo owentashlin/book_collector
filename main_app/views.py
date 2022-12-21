@@ -1,8 +1,9 @@
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Book
 from .models import Tea
+from .forms import ReadingForm
 
 # Create your views here.
 def home(request):
@@ -21,11 +22,26 @@ def teas_index(request):
 
 def books_detail(request, book_id):
   book = Book.objects.get(id=book_id)
-  return render(request, 'books/detail.html', {'book':book})
+  id_list = book.teas.all().values_list('id')
+  available_teas = Tea.objects.exclude(id__in=id_list)
+  reading_form = ReadingForm()
+  return render(request, 'books/detail.html', {'book':book, 'reading_form':reading_form, 'teas':available_teas})
+
+def add_reading(request, book_id):
+  form=ReadingForm(request.POST)
+  if form.is_valid():
+    new_reading=form.save(commit=False)
+    new_reading.book_id = book_id
+    new_reading.save()
+  return redirect('book_detail', book_id = book_id)
+
+def assoc_tea(request, book_id, tea_id):
+  Book.objects.get(id=book_id).teas.add(tea_id)
+  return redirect('book_detail', book_id=book_id)
 
 class BookCreate(CreateView):
   model = Book
-  fields = '__all__'
+  fields = ['title', 'author', 'description', 'rating']
   success_url= '/books/'
 
 class BookUpdate(UpdateView):

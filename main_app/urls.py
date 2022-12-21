@@ -20,6 +20,10 @@ urlpatterns = [
 
     path('books/<int:pk>/delete/', views.BookDelete.as_view(), name='books_delete'),
 
+    path('books/<int:book_id>/add_reading/', views.add_reading, name='add_reading'),
+
+    path('books/<int:book_id>/assoc_tea/<int:tea_id>/', views.assoc_tea, name='assoc_tea'),
+
     path('teas/create/', views.TeaCreate.as_view(), name='teas_create'),
 
     path('teas/<int:pk>/update/', views.TeaUpdate.as_view(), name='teas_update'),
