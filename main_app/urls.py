@@ -24,6 +24,8 @@ urlpatterns = [
 
     path('books/<int:book_id>/assoc_tea/<int:tea_id>/', views.assoc_tea, name='assoc_tea'),
 
+    path('books/<int:book_id>/assoc_tea/<int:tea_id>/remove/', views.remove_tea, name='remove_tea'),
+
     path('teas/create/', views.TeaCreate.as_view(), name='teas_create'),
 
     path('teas/<int:pk>/update/', views.TeaUpdate.as_view(), name='teas_update'),

@@ -39,6 +39,10 @@ def assoc_tea(request, book_id, tea_id):
   Book.objects.get(id=book_id).teas.add(tea_id)
   return redirect('book_detail', book_id=book_id)
 
+def remove_tea(request, book_id, tea_id):
+  Book.objects.get(id=book_id).teas.remove(tea_id)
+  return redirect('book_detail', book_id=book_id)
+
 class BookCreate(CreateView):
   model = Book
   fields = ['title', 'author', 'description', 'rating']

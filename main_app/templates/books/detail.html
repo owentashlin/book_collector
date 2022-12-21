@@ -52,6 +52,12 @@
               <span>{{ tea.flavor }}</span> by {{ tea.brand }} goes well with this book.
             </span>
           </div>
+          <div class="card-action">
+            <form action="{% url 'remove_tea' book.id tea.id %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn">Remove</button>
+            </form>
+          </div>
         </div>
       {% endfor %}
     {% else %}
