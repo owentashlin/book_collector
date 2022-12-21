@@ -31,4 +31,6 @@ urlpatterns = [
     path('teas/<int:pk>/update/', views.TeaUpdate.as_view(), name='teas_update'),
 
     path('teas/<int:pk>/delete/', views.TeaDelete.as_view(), name='teas_delete'),
+
+    path('accounts/signup/', views.signup, name='signup'),
 ]
